@@ -1,112 +1,121 @@
-CREATE DATABASE RedResQ
-GO
+CREATE DATABASE RedResQ;
 
-USE RedResQ
-GO
+USE RedResQ;
 
 CREATE TABLE Location
 (
-    [ID] INT NOT NULL PRIMARY KEY,
-    [country] VARCHAR(255) NOT NULL,
-    [region] VARCHAR(255) NOT NULL,
-    [place] VARCHAR(255) NOT NULL,
-    [postalcode] VARCHAR(255) NOT NULL
+    ID INT NOT NULL AUTO_INCREMENT,
+    Country VARCHAR(255) NOT NULL,
+    region VARCHAR(255) NOT NULL,
+    place VARCHAR(255) NOT NULL,
+    postalCode VARCHAR(255) NOT NULL,
+    PRIMARY KEY (ID)
 );
-GO
 
 CREATE TABLE Language
 (
-    [ID] INT NOT NULL PRIMARY KEY,
-    [name] VARCHAR(255) NOT NULL
+    ID INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    PRIMARY KEY (ID)
 );
-GO
 
 CREATE TABLE Image
 (
-    [ID] INT NOT NULL PRIMARY KEY,
-    [source] VARCHAR(255) NOT NULL
+    ID INT NOT NULL AUTO_INCREMENT,
+    source VARCHAR(255) NOT NULL,
+    PRIMARY KEY (ID)
 );
-GO
 
 CREATE TABLE Quiz
 (
-    [ID] INT NOT NULL PRIMARY KEY,
-    [name] VARCHAR(10) NOT NULL,
-    [maxscore] int NOT NULL
+    ID INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(10) NOT NULL,
+    maxScore int NOT NULL,
+    PRIMARY KEY (ID)
 );
-GO
 
 CREATE TABLE Question
 (
-    [ID] INT NOT NULL PRIMARY KEY,
-    [text] VARCHAR(20) NOT NULL,
-    [QuizID] INT FOREIGN KEY REFERENCES Quiz(ID) NOT NULL
+    ID INT NOT NULL AUTO_INCREMENT,
+    text VARCHAR(20) NOT NULL,
+    QuizID int not null,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (QuizID) REFERENCES Quiz(ID)
 );
-GO
 
 CREATE TABLE Answer
 (
-    [ID] INT NOT NULL PRIMARY KEY,
-    [text] VARCHAR(10) NOT NULL,
-    [istrue] bit NOT NULL,
-    [QuestionID] INT FOREIGN KEY REFERENCES Question(ID) NOT NULL
+    ID INT NOT NULL AUTO_INCREMENT,
+    text VARCHAR(10) NOT NULL,
+    isTrue bit NOT NULL,
+    QuestionID int not null,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (QuestionID) REFERENCES Question(ID)
 );
-GO
 
 CREATE TABLE Article
 (
-    [ID] int not null primary key,
-    [title] VARCHAR(255) not null,
-    [content] VARCHAR(255) not null,
-    [author] varchar(255) not null,
-    [date] date not null,
-    [LanguageID] int FOREIGN key REFERENCES [Language](ID) not null,
-    [ImageID] int foreign key references [Image](ID),
-    [LocationID] int FOREIGN KEY REFERENCES [Location](ID)
+    ID int not null AUTO_INCREMENT,
+    title VARCHAR(255) not null,
+    content VARCHAR(255) not null,
+    author varchar(255) not null,
+    date date not null,
+    LanguageID int not null,
+    ImageID int not null,
+    LocationID int not null,
+    primary key (ID),
+    FOREIGN key (LanguageID) REFERENCES Language(ID),
+    foreign key (ImageID) references Image(ID),
+    FOREIGN KEY (LocationID) REFERENCES Location(ID)
 );
-GO
 
 create table Account
 (
-    [ID] int not null PRIMARY key,
-    [username] VARCHAR(20) not null,
-    [firstname] VARCHAR(20),
-    [lastname] VARCHAR(20),
-    [email] VARCHAR(255) not null,
-    [birthdate] date not null,
-    [password] varchar(30) not null,
-    [sex] varchar(10) not null,
-    [LanguageID] int FOREIGN key REFERENCES [Language](ID) not null,
-    [LocationID] int FOREIGN KEY REFERENCES [Location](ID)
+    ID int not null AUTO_INCREMENT,
+    username VARCHAR(20) not null,
+    firstname VARCHAR(20),
+    lastname VARCHAR(20),
+    email VARCHAR(255) not null,
+    birthdate date not null,
+    password varchar(30) not null,
+    sex varchar(10) not null,
+    LanguageID int not null,
+    LocationID int not null,
+    primary key (ID),
+    FOREIGN key (LanguageID) REFERENCES Language(ID),
+    FOREIGN KEY (LocationID) REFERENCES Location(ID)
 );
-GO
 
 create table Liked
 (
-    [AccountID] int FOREIGN key REFERENCES Account(ID),
-    [ArticleID] int FOREIGN KEY REFERENCES Article(ID)
+    AccountID int not null,
+    ArticleID int not null,
+    FOREIGN key (AccountID) REFERENCES Account(ID),
+    FOREIGN KEY (ArticleID) REFERENCES Article(ID)
 );
-GO
 
 create table HasSeen
 (
-    [AccountID] int foreign key REFERENCES Account(ID),
-    [ArticleID] int FOREIGN KEY REFERENCES Article(ID)
+    AccountID int not null,
+    ArticleID int not null,
+    foreign key (AccountID) REFERENCES Account(ID),
+    FOREIGN KEY (ArticleID) REFERENCES Article(ID)
 );
-GO
 
 create table HasDone
 (
-    [AccountID] int FOREIGN key REFERENCES Account(ID),
-    [QuizID] int FOREIGN KEY REFERENCES Quiz(ID),
-    [score] int not null
+    AccountID int not null,
+    QuizID int not null,
+    FOREIGN key (AccountID) REFERENCES Account(ID),
+    FOREIGN KEY (QuizID) REFERENCES Quiz(ID),
+    score int not null
 );
-GO
 
 create table Answered
 (
-    [AccountID] int FOREIGN KEY REFERENCES Account(ID),
-    [QuestionID] int FOREIGN KEY REFERENCES Question(ID),
-    [correctAnswerGiven] bit not null
+    AccountID int not null,
+    QuestionID int not null,
+    FOREIGN KEY (AccountID) REFERENCES Account(ID),
+    FOREIGN KEY (QuestionID) REFERENCES Question(ID),
+    correctAnswerGiven bit not null
 );
-GO
