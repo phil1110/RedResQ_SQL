@@ -17,7 +17,7 @@ GO
 CREATE TABLE Language
 (
     [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-    [name] VARCHAR(255) NOT NULL
+    [name] VARCHAR(255) NOT NULL UNIQUE
 );
 GO
 
@@ -66,13 +66,13 @@ CREATE TABLE Article
 );
 GO
 
-create table Account
+create table Person
 (
     [ID] int not null PRIMARY key IDENTITY(1,1),
-    [username] VARCHAR(20) not null,
+    [username] VARCHAR(20) not null UNIQUE,
     [firstname] VARCHAR(20),
     [lastname] VARCHAR(20),
-    [email] VARCHAR(255) not null,
+    [email] VARCHAR(255) not null UNIQUE,
     [birthdate] date not null,
     [password] varchar(30) not null,
     [sex] varchar(10) not null,
@@ -81,23 +81,31 @@ create table Account
 );
 GO
 
+create table Session
+(
+    [ID] int not null PRIMARY key IDENTITY(1,1),
+    [DeviceID] varchar(255) UNIQUE,
+    [PersonID] int foreign key references Person(ID)
+);
+GO
+
 create table Liked
 (
-    [AccountID] int FOREIGN key REFERENCES Account(ID),
+    [PersonID] int FOREIGN key REFERENCES Person(ID),
     [ArticleID] int FOREIGN KEY REFERENCES Article(ID)
 );
 GO
 
 create table HasSeen
 (
-    [AccountID] int foreign key REFERENCES Account(ID),
+    [PersonID] int foreign key REFERENCES Person(ID),
     [ArticleID] int FOREIGN KEY REFERENCES Article(ID)
 );
 GO
 
 create table HasDone
 (
-    [AccountID] int FOREIGN key REFERENCES Account(ID),
+    [PersonID] int FOREIGN key REFERENCES Person(ID),
     [QuizID] int FOREIGN KEY REFERENCES Quiz(ID),
     [score] int not null
 );
@@ -105,7 +113,7 @@ GO
 
 create table Answered
 (
-    [AccountID] int FOREIGN KEY REFERENCES Account(ID),
+    [PersonID] int FOREIGN KEY REFERENCES Person(ID),
     [QuestionID] int FOREIGN KEY REFERENCES Question(ID),
     [correctAnswerGiven] bit not null
 );
