@@ -83,7 +83,7 @@ GO
 
 create table Session
 (
-    [ID] int not null PRIMARY key IDENTITY(1,1),
+    [ID] varchar(20) not null PRIMARY key IDENTITY(1,1),
     [DeviceID] varchar(255) UNIQUE,
     [PersonID] int foreign key references Person(ID)
 );
