@@ -4,6 +4,7 @@ GO
 USE RedResQ
 GO
 
+
 CREATE TABLE Location
 (
     [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
