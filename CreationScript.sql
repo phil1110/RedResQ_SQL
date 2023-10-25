@@ -78,9 +78,16 @@ create table Person
     [password] varchar(30) not null,
     [sex] varchar(10) not null,
     [LanguageID] int not null FOREIGN key REFERENCES [Language](ID),
-    [LocationID] int FOREIGN KEY REFERENCES [Location](ID)
+    [LocationID] int FOREIGN KEY REFERENCES [Location](ID),
+    [RoleID] int foreign key references [Role](ID)
 );
 GO
+
+create table Role
+(
+    [ID] int not null PRIMARY KEY identity(1,1),
+    [name] varchar not null unique
+)
 
 create table Session
 (
