@@ -11,7 +11,7 @@ INSERT INTO Location (country, city, postalCode) VALUES
 ('Australia', 'Sydney', '2000'),
 ('Canada', 'Toronto', 'M5V 3L9'),
 ('Spain', 'Barcelona', '08002'),
-('Brazil', 'São Paulo', '01310-200'),
+('Brazil', N'São Paulo', '01310-200'),
 ('India', 'Mumbai', '400001'),
 ('China', 'Beijing', '100006'),
 ('Russia', 'Moscow', '101000'),
