@@ -1,26 +1,26 @@
 Use RedResQ
 Go
 
-INSERT INTO Location (country, region, place, postalCode) VALUES
-('Germany', 'Bavaria', 'Munich', '80331'),
-('United States', 'California', 'Los Angeles', '90001'),
-('France', 'Île-de-France', 'Paris', '75001'),
-('Italy', 'Lazio', 'Rome', '00118'),
-('Japan', 'Tokyo', 'Shinjuku', '160-0022'),
-('United Kingdom', 'England', 'London', 'WC2N'),
-('Australia', 'New South Wales', 'Sydney', '2000'),
-('Canada', 'Ontario', 'Toronto', 'M5V 3L9'),
-('Spain', 'Catalonia', 'Barcelona', '08002'),
-('Brazil', 'São Paulo', 'São Paulo', '01310-200'),
-('India', 'Maharashtra', 'Mumbai', '400001'),
-('China', 'Beijing', 'Beijing', '100006'),
-('Russia', 'Moscow', 'Moscow', '101000'),
-('South Africa', 'Gauteng', 'Johannesburg', '2000'),
-('Mexico', 'Mexico City', 'Mexico City', '06000'),
-('South Korea', 'Seoul', 'Jung-gu', '04533'),
-('Nigeria', 'Lagos', 'Lagos', '100001'),
-('Argentina', 'Buenos Aires', 'Buenos Aires', 'C1002'),
-('Turkey', 'Istanbul', 'Istanbul', '34000');
+INSERT INTO Location (country, city, postalCode) VALUES
+('Germany', 'Munich', '80331'),
+('United States', 'Los Angeles', '90001'),
+('France', 'Paris', '75001'),
+('Italy', 'Rome', '00118'),
+('Japan', 'Tokyo', '160-0022'),
+('United Kingdom', 'London', 'WC2N'),
+('Australia', 'Sydney', '2000'),
+('Canada', 'Toronto', 'M5V 3L9'),
+('Spain', 'Barcelona', '08002'),
+('Brazil', 'São Paulo', '01310-200'),
+('India', 'Mumbai', '400001'),
+('China', 'Beijing', '100006'),
+('Russia', 'Moscow', '101000'),
+('South Africa', 'Johannesburg', '2000'),
+('Mexico', 'Mexico City', '06000'),
+('South Korea', 'Seoul', '04533'),
+('Nigeria', 'Lagos', '100001'),
+('Argentina', 'Buenos Aires', 'C1002'),
+('Turkey', 'Istanbul', '34000');
 
 INSERT INTO Language (name) VALUES
 ('English'),
@@ -172,7 +172,7 @@ INSERT INTO Article (title, content, author, date, LanguageID, ImageID, Location
 ('The Beauty of French Cuisine', 'French cuisine is known for its exquisite flavors and elegant presentation...', 'Thomas Garcia', '2023-11-05', 3, 17, 15),
 ('The Impact of Shakespearean Plays on Literature', 'Shakespearean plays have had a lasting impact on the world of literature...', 'Amelia Brown', '2023-11-06', 1, 18, 18),
 ('Exploring the History of the Chinese Dynasties', 'The history of the Chinese dynasties is rich and complex...', 'Oliver Johnson', '2023-11-07', 7, 19, 19),
-('The Fascinating World of Marine Biology', 'Marine biology is the study of marine organisms and their interactions with the environment...', 'Charlotte Davis', '2023-11-08', 1, 20, 20);
+('The Fascinating World of Marine Biology', 'Marine biology is the study of marine organisms and their interactions with the environment...', 'Charlotte Davis', '2023-11-08', 1, 20, 16);
 
 INSERT INTO Role (name) VALUES
 ('Guest'),
@@ -198,38 +198,38 @@ INSERT INTO Person (username, firstname, lastname, email, birthdate, password, s
 ('sophie_baker', 'Sophie', 'Baker', 'sophie_baker@example.com', '1989-12-28', 'passwordstu', 'Female', 2, 11, 7),
 ('michael_clark', 'Michael', 'Clark', 'michael_clark@example.com', '1992-03-17', 'passwordvwx', 'Male', 3, 8, 8),
 ('olivia_white', 'Olivia', 'White', 'olivia_white@example.com', '1991-07-14', 'passwordyz', 'Female', 1, 14, 9),
-('james_harris', 'James', 'Harris', 'james_harris@example.com', '1986-11-29', 'password1234', 'Male', 1, 12, 10),
+('james_harris', 'James', 'Harris', 'james_harris@example.com', '1986-11-29', 'password1234', 'Male', 1, 12, 2),
 ('ella_wilson', 'Ella', 'Wilson', 'ella_wilson@example.com', '1995-01-05', 'password5678', 'Female', 1, 13, 2),
 ('alexander_johnson', 'Alexander', 'Johnson', 'alexander_johnson@example.com', '1994-04-02', 'password9012', 'Male', 1, 14, 3),
 ('isabella_smith', 'Isabella', 'Smith', 'isabella_smith@example.com', '1987-12-10', 'password3456', 'Female', 1, 16, 4),
 ('thomas_garcia', 'Thomas', 'Garcia', 'thomas_garcia@example.com', '1993-02-25', 'password7890', 'Male', 3, 17, 5),
 ('amelia_brown', 'Amelia', 'Brown', 'amelia_brown@example.com', '1990-06-14', 'password12345', 'Female', 1, 18, 6),
 ('oliver_johnson', 'Oliver', 'Johnson', 'oliver_johnson@example.com', '1989-09-27', 'password67890', 'Male', 7, 19, 7),
-('charlotte_davis', 'Charlotte', 'Davis', 'charlotte_davis@example.com', '1992-04-30', 'password23456', 'Female', 1, 20, 8);
+('charlotte_davis', 'Charlotte', 'Davis', 'charlotte_davis@example.com', '1992-04-30', 'password23456', 'Female', 1, 15, 8);
 
 INSERT INTO Session (DeviceID, PersonID) VALUES
-('device123', 1),
-('device456', 2),
-('device789', 3),
-('deviceabc', 4),
-('devicedef', 5),
-('deviceghi', 6),
-('devicejkl', 7),
-('devicemno', 8),
-('devicepqr', 9),
-('devicestu', 10);
+('device123', 10),
+('device456', 9),
+('device789', 8),
+('deviceabc', 7),
+('devicedef', 6),
+('deviceghi', 5),
+('devicejkl', 4),
+('devicemno', 3),
+('devicepqr', 2),
+('devicestu', 1);
 
 INSERT INTO Liked (PersonID, ArticleID) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10);
+(10, 1),
+(9, 2),
+(8, 3),
+(7, 4),
+(6, 5),
+(5, 6),
+(4, 7),
+(3, 8),
+(2, 9),
+(1, 10);
 
 INSERT INTO HasSeen (PersonID, ArticleID) VALUES
 (1, 11),
