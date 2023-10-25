@@ -49,7 +49,7 @@ CREATE TABLE Answer
 (
     [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [text] VARCHAR(10) NOT NULL,
-    [isT rue] bit NOT NULL,
+    [isTrue] bit NOT NULL,
     [QuestionID] INT NOT NULL FOREIGN KEY REFERENCES Question(ID)
 );
 GO
@@ -67,6 +67,12 @@ CREATE TABLE Article
 );
 GO
 
+create table Role
+(
+    [ID] int not null PRIMARY KEY identity(1,1),
+    [name] varchar not null unique
+)
+
 create table Person
 (
     [ID] int not null PRIMARY key IDENTITY(1,1),
@@ -82,12 +88,6 @@ create table Person
     [RoleID] int foreign key references [Role](ID)
 );
 GO
-
-create table Role
-(
-    [ID] int not null PRIMARY KEY identity(1,1),
-    [name] varchar not null unique
-)
 
 create table Session
 (
