@@ -16,3 +16,17 @@ on p.LocationID = ln.ID
 left join Role r
 on p.RoleID = r.ID
 go
+
+create view VSession_Person
+as
+SELECT p.ID as [PersonID], p.username, p.firstname, p.lastname, p.email, p.birthdate,
+       p.sex, lg.ID as [LanguageID], lg.name as [LanguageName], ln.ID as [LocationID], ln.country, ln.city,
+       ln.postalCode, r.ID as [RoleID], r.name as [RoleName]
+from Person p
+left join Language lg
+on p.LanguageID = lg.ID
+left join Location ln
+on p.LocationID = ln.ID
+left join Role r
+on p.RoleID = r.ID
+go
