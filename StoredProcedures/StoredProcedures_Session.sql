@@ -15,21 +15,17 @@ INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, sex, 
 GO;
 
 create procedure LoginEmail
-    @email VARCHAR(1000),
-    @hash VARCHAR(1000)
+    @email VARCHAR(1000)
 AS
 select *
 from V_Login l
 where l.email = @email
-and l.hash = @hash
 GO;
 
 create procedure LoginUsername
-    @username VARCHAR(255),
-    @hash VARCHAR(1000)
-AS
+    @username VARCHAR(255)
+as
 select *
 from V_Login l
 where l.username = @username
-and l.hash = @hash
 GO;
