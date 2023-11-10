@@ -3,7 +3,7 @@ create procedure Register
     @firstname VARCHAR(255),
     @lastname VARCHAR(255),
     @email VARCHAR(1000),
-    @birthdate date,
+    @birthdate DATETIME,
     @hash varchar(1000),
     @sex varchar(255),
     @languageId int,
@@ -11,7 +11,8 @@ create procedure Register
     @roleId int
 AS
 INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, sex, LanguageID, LocationID, RoleID) VALUES
-(@username, @firstname, @lastname, @email, @birthdate, @hash, @sex, @languageId, @locationId, @roleId)
+(@username, @firstname, @lastname, @email, Convert(datetime, @birthdate), @hash, @sex, convert(int, @languageId),
+ convert(int, @locationId), convert(int, @roleId))
 GO;
 
 create procedure LoginEmail
