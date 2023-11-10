@@ -185,7 +185,7 @@ INSERT INTO Role (name) VALUES
 ('Manager'),
 ('Admin');
 
-INSERT INTO Person (username, firstname, lastname, email, birthdate, password, sex, LanguageID, LocationID, RoleID) VALUES
+INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, sex, LanguageID, LocationID, RoleID) VALUES
 ('john_doe', 'John', 'Doe', 'john_doe@example.com', '1990-05-12', 'password123', 'Male', 1, 1, 1),
 ('jane_smith', 'Jane', 'Smith', 'jane_smith@example.com', '1985-09-20', 'password456', 'Female', 2, 3, 3),
 ('michael_johnson', 'Michael', 'Johnson', 'michael_johnson@example.com', '1992-02-15', 'password789', 'Male', 3, 7, 4),
