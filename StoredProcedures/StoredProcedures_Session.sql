@@ -13,3 +13,11 @@ AS
 INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, sex, LanguageID, LocationID, RoleID) VALUES
 (@username, @firstname, @lastname, @email, @birthdate, @hash, @sex, @languageId, @locationId, @roleId)
 GO;
+
+create procedure LoginEmail
+    @email VARCHAR(1000),
+    @hash VARCHAR(1000)
+AS
+select *
+from V_Login
+where
