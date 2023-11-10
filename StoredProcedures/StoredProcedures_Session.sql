@@ -19,5 +19,17 @@ create procedure LoginEmail
     @hash VARCHAR(1000)
 AS
 select *
-from V_Login
-where
+from V_Login l
+where l.email = @email
+and l.hash = @hash
+GO;
+
+create procedure LoginUsername
+    @username VARCHAR(255),
+    @hash VARCHAR(1000)
+AS
+select *
+from V_Login l
+where l.username = @username
+and l.hash = @hash
+GO;

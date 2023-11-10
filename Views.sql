@@ -4,9 +4,9 @@ GO;
 create view V_Login
 as
 select p.ID as 'PersonID', p.username, p.firstname, p.lastname, p.email, p.birthdate, p.hash, p.sex,
-       lg.ID as 'LanguageID', lg.name,
+       lg.ID as 'LanguageID', lg.name as 'LanguageName',
        lo.ID as 'LocationID', lo.country, lo.city, lo.postalCode,
-       r.ID as 'RoleID', r.name
+       r.ID as 'RoleID', r.name as 'RoleName'
 from Person p
 left join Language lg
 on p.LanguageID = lg.ID
