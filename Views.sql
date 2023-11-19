@@ -1,6 +1,3 @@
-use RedResQ
-GO;
-
 create view V_Login
 as
 select p.ID as 'PersonID', p.username, p.firstname, p.lastname, p.email, p.birthdate, p.hash, p.sex,

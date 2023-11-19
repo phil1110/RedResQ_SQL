@@ -1,6 +1,3 @@
-USE RedResQ
-GO
-
 create table R_Liked
 (
     [PersonID] int FOREIGN key REFERENCES Person(ID),

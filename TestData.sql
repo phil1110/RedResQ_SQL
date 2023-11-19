@@ -1,6 +1,3 @@
-Use RedResQ
-Go
-
 INSERT INTO Location (country, city, postalCode) VALUES
 ('Germany', 'Munich', '80331'),
 ('United States', 'Los Angeles', '90001'),
