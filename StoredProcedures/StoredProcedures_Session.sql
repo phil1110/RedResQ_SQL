@@ -1,4 +1,4 @@
-create procedure Register
+create procedure SP_Se_Register
     @username VARCHAR(255),
     @firstname VARCHAR(255),
     @lastname VARCHAR(255),
@@ -15,7 +15,7 @@ INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, sex, 
  convert(int, @locationId), convert(int, @roleId))
 GO;
 
-create procedure LoginEmail
+create procedure SP_Se_LoginEmail
     @email VARCHAR(1000)
 AS
 select *
@@ -23,7 +23,7 @@ from V_Login l
 where l.email = @email
 GO;
 
-create procedure LoginUsername
+create procedure SP_Se_LoginUsername
     @username VARCHAR(255)
 as
 select *
