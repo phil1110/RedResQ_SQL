@@ -96,4 +96,13 @@ create table Session
 );
 GO
 
+create table ResetRequests
+(
+    [ID] int not null primary key identity(1,1),
+    [ConfirmationCode] int not null,
+    [CreationDate] date not null,
+    [PersonID] int not null foreign key references Person(ID)
+);
+Go
+
 

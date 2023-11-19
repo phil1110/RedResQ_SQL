@@ -1,3 +1,6 @@
+use RedResQ
+Go
+
 create procedure SP_Se_Register
     @username VARCHAR(255),
     @firstname VARCHAR(255),
@@ -10,23 +13,23 @@ create procedure SP_Se_Register
     @locationId int,
     @roleId int
 AS
-INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, sex, LanguageID, LocationID, RoleID) VALUES
-(@username, @firstname, @lastname, @email, Convert(datetime, @birthdate), @hash, @sex, convert(int, @languageId),
- convert(int, @locationId), convert(int, @roleId))
+    INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, sex, LanguageID, LocationID, RoleID) VALUES
+    (@username, @firstname, @lastname, @email, Convert(datetime, @birthdate), @hash, @sex, convert(int, @languageId),
+    convert(int, @locationId), convert(int, @roleId))
 GO;
 
 create procedure SP_Se_LoginEmail
     @email VARCHAR(1000)
 AS
-select *
-from V_Login l
-where l.email = @email
+    select *
+    from V_Login l
+    where l.email = @email
 GO;
 
 create procedure SP_Se_LoginUsername
     @username VARCHAR(255)
 as
-select *
-from V_Login l
-where l.username = @username
+    select *
+    from V_Login l
+    where l.username = @username
 GO;
