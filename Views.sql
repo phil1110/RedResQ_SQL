@@ -1,4 +1,4 @@
-use RedResQ_Test
+use RedResQ
 GO;
 
 create view V_Login

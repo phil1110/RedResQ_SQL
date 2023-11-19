@@ -96,32 +96,4 @@ create table Session
 );
 GO
 
-create table Liked
-(
-    [PersonID] int FOREIGN key REFERENCES Person(ID),
-    [ArticleID] int FOREIGN KEY REFERENCES Article(ID)
-);
-GO
 
-create table HasSeen
-(
-    [PersonID] int foreign key REFERENCES Person(ID),
-    [ArticleID] int FOREIGN KEY REFERENCES Article(ID)
-);
-GO
-
-create table HasDone
-(
-    [PersonID] int FOREIGN key REFERENCES Person(ID),
-    [QuizID] int FOREIGN KEY REFERENCES Quiz(ID),
-    [score] int not null
-);
-GO
-
-create table Answered
-(
-    [PersonID] int FOREIGN KEY REFERENCES Person(ID),
-    [QuestionID] int FOREIGN KEY REFERENCES Question(ID),
-    [correctAnswerGiven] bit not null
-);
-GO
