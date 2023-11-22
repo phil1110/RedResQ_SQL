@@ -1,20 +1,20 @@
 create table R_Liked
 (
-    [PersonID] int FOREIGN key REFERENCES Person(ID),
+    [PersonUsername] VARCHAR(255) FOREIGN key REFERENCES Person(username),
     [ArticleID] int FOREIGN KEY REFERENCES Article(ID)
 );
 GO
 
 create table R_HasSeen
 (
-    [PersonID] int foreign key REFERENCES Person(ID),
+    [PersonUsername] VARCHAR(255) foreign key REFERENCES Person(username),
     [ArticleID] int FOREIGN KEY REFERENCES Article(ID)
 );
 GO
 
 create table R_HasDone
 (
-    [PersonID] int FOREIGN key REFERENCES Person(ID),
+    [PersonUsername] VARCHAR(255) FOREIGN key REFERENCES Person(username),
     [QuizID] int FOREIGN KEY REFERENCES Quiz(ID),
     [score] int not null
 );
@@ -22,7 +22,7 @@ GO
 
 create table R_Answered
 (
-    [PersonID] int FOREIGN KEY REFERENCES Person(ID),
+    [PersonUsername] VARCHAR(255) FOREIGN KEY REFERENCES Person(username),
     [QuestionID] int FOREIGN KEY REFERENCES Question(ID),
     [correctAnswerGiven] bit not null
 );
