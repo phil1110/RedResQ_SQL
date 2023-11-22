@@ -74,8 +74,7 @@ create table Role
 
 create table Person
 (
-    [ID] int not null PRIMARY key IDENTITY(1,1),
-    [username] VARCHAR(255) not null UNIQUE,
+    [username] VARCHAR(255) not null UNIQUE primary key,
     [firstname] VARCHAR(255),
     [lastname] VARCHAR(255),
     [email] VARCHAR(1000) not null UNIQUE,
