@@ -86,9 +86,8 @@ create table Person
     [email] VARCHAR(1000) not null UNIQUE,
     [birthdate] date not null,
     [hash] varchar(1000) not null,
-    [sex] varchar(255) not null,
-    [LanguageID] int not null FOREIGN key REFERENCES [Language](ID),
     [gender] int not null foreign key references [Gender](ID),
+    [LanguageID] int FOREIGN key REFERENCES [Language](ID),
     [LocationID] int FOREIGN KEY REFERENCES [Location](ID),
     [RoleID] int foreign key references [Role](ID)
 );
