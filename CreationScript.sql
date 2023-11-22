@@ -72,6 +72,12 @@ create table Role
     [name] varchar(255) not null unique
 )
 
+create table Gender
+(
+    [ID] int not null PRIMARY KEY identity (1,1),
+    [name] varchar(255) not null
+)
+
 create table Person
 (
     [username] VARCHAR(255) not null UNIQUE primary key,
