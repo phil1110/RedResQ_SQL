@@ -6,10 +6,10 @@ as
     where p.email = @email
 go;
 
-create procedure SP_Pe_GetId
+create procedure SP_Pe_GetUsername
     @email varchar(1000)
 as
-    select p.ID
+    select p.username
     from Person p
     where p.email = @email
 go;
@@ -26,8 +26,8 @@ go;
 create procedure SP_Pe_RequestPasswordReset
     @confirmationCode int,
     @creationDate datetime,
-    @personId int
+    @personUsername varchar(255)
 as
-    insert into ResetRequests (ConfirmationCode, CreationDate, PersonID)
-    values (@confirmationCode, @creationDate, @personId)
+    insert into ResetRequests (ConfirmationCode, CreationDate, PersonUsername)
+    values (@confirmationCode, @creationDate, @personUsername)
 go;

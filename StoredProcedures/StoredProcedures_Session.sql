@@ -5,13 +5,13 @@ create procedure SP_Se_Register
     @email VARCHAR(1000),
     @birthdate DATETIME,
     @hash varchar(1000),
-    @sex varchar(255),
+    @gender int,
     @languageId int,
     @locationId int,
     @roleId int
 AS
-    INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, sex, LanguageID, LocationID, RoleID) VALUES
-    (@username, @firstname, @lastname, @email, Convert(datetime, @birthdate), @hash, @sex, convert(int, @languageId),
+    INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, gender, LanguageID, LocationID, RoleID) VALUES
+    (@username, @firstname, @lastname, @email, Convert(datetime, @birthdate), @hash, @gender, convert(int, @languageId),
     convert(int, @locationId), convert(int, @roleId))
 GO;
 

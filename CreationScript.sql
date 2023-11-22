@@ -80,7 +80,7 @@ create table Gender
 
 create table Person
 (
-    [username] VARCHAR(255) not null UNIQUE primary key,
+    [username] VARCHAR(255) not null primary key,
     [firstname] VARCHAR(255),
     [lastname] VARCHAR(255),
     [email] VARCHAR(1000) not null UNIQUE,
@@ -93,20 +93,12 @@ create table Person
 );
 GO
 
-create table Session
-(
-    [ID] int not null PRIMARY key IDENTITY(1,1),
-    [DeviceID] varchar(255) UNIQUE,
-    [PersonID] int foreign key references Person(ID)
-);
-GO
-
 create table ResetRequests
 (
     [ID] int not null primary key identity(1,1),
     [ConfirmationCode] int not null,
     [CreationDate] date not null,
-    [PersonID] int not null foreign key references Person(ID)
+    [PersonUsername] VARCHAR(255) not null foreign key references Person(username)
 );
 Go
 
