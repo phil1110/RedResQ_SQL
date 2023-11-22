@@ -19,14 +19,14 @@ create procedure SP_Se_LoginEmail
     @email VARCHAR(1000)
 AS
     select *
-    from V_Login l
-    where l.email = @email
+    from Person p
+    where p.email = @email
 GO;
 
 create procedure SP_Se_LoginUsername
     @username VARCHAR(255)
 as
     select *
-    from V_Login l
-    where l.username = @username
+    from Person p
+    where p.username = @username
 GO;
