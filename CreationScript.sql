@@ -80,7 +80,8 @@ create table Gender
 
 create table Person
 (
-    [username] VARCHAR(255) not null primary key,
+    [ID] bigint primary key identity(1,1),
+    [username] VARCHAR(255) not null unique,
     [firstname] VARCHAR(255),
     [lastname] VARCHAR(255),
     [email] VARCHAR(1000) not null UNIQUE,
