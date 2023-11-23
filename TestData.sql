@@ -228,8 +228,8 @@ VALUES
     ('The Art of Japanese Tea Ceremony', 'Donec vel ligula vel quam viverra ultricies at vel turpis. Morbi at erat at leo...', 'Chloe Robinson', '2025-02-27', 26, 26, 27),
     ('The Impact of Globalization on Cultures', 'Pellentesque sollicitudin, urna vel fringilla tempor, leo sem accumsan elit...', 'Henry Davis', '2025-03-05', 27, 27, 28),
     ('The Fascinating World of Marine Biology', 'Nullam efficitur mi ut lectus accumsan, id rhoncus lectus tempor. Nulla facilisi...', 'Scarlett Turner', '2025-04-18', 28, 28, 29),
-    ('The Rise of Renewable Energy', 'Suspendisse tincidunt neque sit amet erat accumsan, nec pharetra elit fringilla...', 'Landon White', '2025-05-02', 29, 29, 30),
-    ('The Art of Mindfulness', 'Phasellus bibendum fringilla est, non bibendum ligula congue ut. Ut in quam in arcu...', 'Isabella Miller', '2025-06-15', 30, 30, 1);
+    ('The Rise of Renewable Energy', 'Suspendisse tincidunt neque sit amet erat accumsan, nec pharetra elit fringilla...', 'Landon White', '2025-05-02', 29, 29, 20),
+    ('The Art of Mindfulness', 'Phasellus bibendum fringilla est, non bibendum ligula congue ut. Ut in quam in arcu...', 'Isabella Miller', '2025-06-15', 20, 20, 1);
 
 INSERT INTO Role ([name])
 VALUES
@@ -313,8 +313,8 @@ VALUES
     ('user26', 'Isabella', 'Miller', 'isabella.miller@example.com', '1993-03-08', 'password26', 3, 26, 27, 5),
     ('user27', 'Ethan', 'Taylor', 'ethan.taylor@example.com', '1984-06-15', 'password27', 2, 27, 28, 3),
     ('user28', 'Aria', 'Hernandez', 'aria.hernandez@example.com', '1997-11-22', 'password28', 1, 28, 29, 2),
-    ('user29', 'Lucas', 'Perez', 'lucas.perez@example.com', '1990-04-01', 'password29', 3, 29, 30, 4),
-    ('user30', 'Emma', 'Garcia', 'emma.garcia@example.com', '1995-09-08', 'password30', 2, 30, 1, 5),
+    ('user29', 'Lucas', 'Perez', 'lucas.perez@example.com', '1990-04-01', 'password29', 3, 29, 20, 4),
+    ('user30', 'Emma', 'Garcia', 'emma.garcia@example.com', '1995-09-08', 'password30', 2, 20, 1, 5),
     ('user31', 'Noah', 'Lopez', 'noah.lopez@example.com', '1986-02-13', 'password31', 1, 1, 2, 3),
     ('user32', 'Grace', 'King', 'grace.king@example.com', '1992-07-20', 'password32', 3, 2, 3, 4),
     ('user33', 'Liam', 'Wright', 'liam.wright@example.com', '1988-12-27', 'password33', 2, 3, 4, 5),
