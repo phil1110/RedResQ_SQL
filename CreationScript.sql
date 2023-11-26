@@ -7,7 +7,7 @@ GO
 
 CREATE TABLE Location
 (
-    [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [country] VARCHAR(500) NOT NULL,
     [city] VARCHAR(255) NOT NULL,
     [postalCode] VARCHAR(255) NOT NULL
@@ -16,21 +16,21 @@ GO
 
 CREATE TABLE Language
 (
-    [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [name] VARCHAR(1000) NOT NULL UNIQUE
 );
 GO
 
 CREATE TABLE Image
 (
-    [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [source] VARCHAR(1000) NOT NULL
 );
 GO
 
 CREATE TABLE Quiz
 (
-    [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [name] VARCHAR(1000) NOT NULL,
     [maxScore] int NOT NULL
 );
@@ -38,7 +38,7 @@ GO
 
 CREATE TABLE Question
 (
-    [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [text] VARCHAR(1000) NOT NULL,
     [QuizID] INT NOT NULL FOREIGN KEY REFERENCES Quiz(ID)
 );
@@ -46,7 +46,7 @@ GO
 
 CREATE TABLE Answer
 (
-    [ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [text] VARCHAR(1000) NOT NULL,
     [isTrue] bit NOT NULL,
     [QuestionID] INT NOT NULL FOREIGN KEY REFERENCES Question(ID)
@@ -55,7 +55,7 @@ GO
 
 CREATE TABLE Article
 (
-    [ID] int not null primary key IDENTITY(1,1),
+    [ID] BIGINT not null primary key IDENTITY(1,1),
     [title] VARCHAR(255) not null,
     [content] VARCHAR(max) not null,
     [author] varchar(255) not null,
@@ -68,13 +68,13 @@ GO
 
 create table Role
 (
-    [ID] int not null PRIMARY KEY identity(1,1),
+    [ID] BIGINT not null PRIMARY KEY identity(1,1),
     [name] varchar(255) not null unique
 )
 
 create table Gender
 (
-    [ID] int not null PRIMARY KEY identity (1,1),
+    [ID] BIGINT not null PRIMARY KEY identity (1,1),
     [name] varchar(255) not null
 )
 
@@ -96,7 +96,7 @@ GO
 
 create table ResetRequests
 (
-    [ID] int not null primary key identity(1,1),
+    [ID] BIGINT not null primary key identity(1,1),
     [ConfirmationCode] int not null,
     [CreationDate] date not null,
     [PersonUsername] VARCHAR(255) not null foreign key references Person(username)
