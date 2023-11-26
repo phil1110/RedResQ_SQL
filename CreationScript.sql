@@ -93,7 +93,7 @@ create table Person
     [email] VARCHAR(1000) not null UNIQUE,
     [birthdate] datetime not null,
     [hash] varchar(1000) not null,
-    [gender] bigint not null foreign key references [Gender](ID),
+    [GenderID] bigint not null foreign key references [Gender](ID),
     [LanguageID] BIGINT FOREIGN key REFERENCES [Language](ID),
     [LocationID] BIGINT FOREIGN KEY REFERENCES [Location](ID),
     [RoleID] BIGINT foreign key references [Role](ID)
