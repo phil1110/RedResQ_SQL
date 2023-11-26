@@ -312,7 +312,7 @@ INSERT INTO Person (
     [email],
     [birthdate],
     [hash],
-    [gender],
+    [GenderID],
     [LanguageID],
     [LocationID],
     [RoleID]
