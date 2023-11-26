@@ -65,7 +65,7 @@ CREATE TABLE Article
     [title] VARCHAR(255) not null,
     [content] VARCHAR(max) not null,
     [author] varchar(255) not null,
-    [date] date not null,
+    [date] datetime not null,
     [LanguageID] BIGINT not null FOREIGN key REFERENCES [Language](ID),
     [ImageID] BIGINT foreign key references [Image](ID),
     [LocationID] BIGINT FOREIGN KEY REFERENCES [Location](ID)
@@ -91,7 +91,7 @@ create table Person
     [firstname] VARCHAR(255),
     [lastname] VARCHAR(255),
     [email] VARCHAR(1000) not null UNIQUE,
-    [birthdate] date not null,
+    [birthdate] datetime not null,
     [hash] varchar(1000) not null,
     [gender] bigint not null foreign key references [Gender](ID),
     [LanguageID] BIGINT FOREIGN key REFERENCES [Language](ID),

@@ -11,8 +11,8 @@ create procedure SP_Se_Register
     @roleId bigint
 AS
     INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, gender, LanguageID, LocationID, RoleID) VALUES
-    (@username, @firstname, @lastname, @email, Convert(datetime, @birthdate), @hash, @gender, convert(int, @languageId),
-    convert(int, @locationId), convert(int, @roleId))
+    (@username, @firstname, @lastname, @email, Convert(datetime, @birthdate), @hash, @gender, @languageId,
+    @locationId, @roleId)
 GO;
 
 create procedure SP_Se_LoginEmail
