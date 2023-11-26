@@ -87,16 +87,16 @@ create procedure SP_Ne_NewArticle
     @content varchar(max),
     @author varchar(255),
     @date datetime,
-    @languageId int,
-    @imageId int,
-    @locationId int
+    @languageId bigint,
+    @imageId bigint,
+    @locationId bigint
 as
     insert into Article (title, content, author, date, LanguageID, ImageID, LocationID)
     VALUES (@title, @content, @author, convert(datetime, @date), @languageId, @imageId, @locationId)
 go;
 
 create procedure SP_Ne_DeleteArticle
-    @id int
+    @id bigint
 as
 delete
 from Article
