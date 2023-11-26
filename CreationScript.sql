@@ -4,13 +4,19 @@ GO
 USE RedResQ
 GO
 
+CREATE TABLE Country
+(
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [country] VARCHAR(500) NOT NULL
+);
+GO
 
 CREATE TABLE Location
 (
     [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
-    [country] VARCHAR(500) NOT NULL,
     [city] VARCHAR(255) NOT NULL,
-    [postalCode] VARCHAR(255) NOT NULL
+    [postalCode] VARCHAR(255) NOT NULL,
+    [CountryID] bigint not null foreign key references Country(ID)
 );
 GO
 
@@ -40,7 +46,7 @@ CREATE TABLE Question
 (
     [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [text] VARCHAR(1000) NOT NULL,
-    [QuizID] INT NOT NULL FOREIGN KEY REFERENCES Quiz(ID)
+    [QuizID] BIGINT NOT NULL FOREIGN KEY REFERENCES Quiz(ID)
 );
 GO
 
@@ -49,7 +55,7 @@ CREATE TABLE Answer
     [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [text] VARCHAR(1000) NOT NULL,
     [isTrue] bit NOT NULL,
-    [QuestionID] INT NOT NULL FOREIGN KEY REFERENCES Question(ID)
+    [QuestionID] BIGINT NOT NULL FOREIGN KEY REFERENCES Question(ID)
 );
 GO
 
@@ -60,9 +66,9 @@ CREATE TABLE Article
     [content] VARCHAR(max) not null,
     [author] varchar(255) not null,
     [date] date not null,
-    [LanguageID] int not null FOREIGN key REFERENCES [Language](ID),
-    [ImageID] int foreign key references [Image](ID),
-    [LocationID] int FOREIGN KEY REFERENCES [Location](ID)
+    [LanguageID] BIGINT not null FOREIGN key REFERENCES [Language](ID),
+    [ImageID] BIGINT foreign key references [Image](ID),
+    [LocationID] BIGINT FOREIGN KEY REFERENCES [Location](ID)
 );
 GO
 
@@ -88,9 +94,9 @@ create table Person
     [birthdate] date not null,
     [hash] varchar(1000) not null,
     [gender] int not null foreign key references [Gender](ID),
-    [LanguageID] int FOREIGN key REFERENCES [Language](ID),
-    [LocationID] int FOREIGN KEY REFERENCES [Location](ID),
-    [RoleID] int foreign key references [Role](ID)
+    [LanguageID] BIGINT FOREIGN key REFERENCES [Language](ID),
+    [LocationID] BIGINT FOREIGN KEY REFERENCES [Location](ID),
+    [RoleID] BIGINT foreign key references [Role](ID)
 );
 GO
 
