@@ -18,17 +18,15 @@ GO;
 create procedure SP_Se_LoginEmail
     @email VARCHAR(1000)
 AS
-    select username, firstname, lastname, email, birthdate, hash, gender,
-           LanguageID, LocationID, RoleID
-    from Person p
-    where p.email = @email
+    select *
+    from V_Login v
+    where v.email = @email
 GO;
 
 create procedure SP_Se_LoginUsername
     @username VARCHAR(255)
 as
-    select username, firstname, lastname, email, birthdate, hash, gender,
-           LanguageID, LocationID, RoleID
-    from Person p
-    where p.username = @username
+    select *
+    from V_Login v
+    where v.username = @username
 GO;
