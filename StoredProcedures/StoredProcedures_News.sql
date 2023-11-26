@@ -12,7 +12,7 @@ begin
     select top 10 *
     from V_Article va
     where va.ArticleID < @articleId
-    order by va.date desc;
+    order by va.ArticleID desc;
 end
 go
 
