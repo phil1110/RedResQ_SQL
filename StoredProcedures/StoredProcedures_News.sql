@@ -1,5 +1,5 @@
 create procedure SP_Ne_LatestArticles_Global
-    @articleId int = null
+    @articleId bigint = null
 as
 if (@articleId is null)
 begin
@@ -18,7 +18,7 @@ go
 
 create procedure SP_Ne_LatestArticles_Country
     @country VARCHAR(500),
-    @articleId int = null
+    @articleId bigint = null
 as
 if (@articleId is null)
 begin
@@ -39,7 +39,7 @@ go
 
 create procedure SP_Ne_LatestArticles_Language
     @language VARCHAR(500),
-    @articleId int = null
+    @articleId bigint = null
 as
 if (@articleId is null)
 begin
