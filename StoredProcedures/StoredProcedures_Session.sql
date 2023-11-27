@@ -10,7 +10,7 @@ create procedure SP_Se_Register
     @locationId bigint,
     @roleId bigint
 AS
-    INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, gender, LanguageID, LocationID, RoleID) VALUES
+    INSERT INTO Person (username, firstname, lastname, email, birthdate, hash, GenderID, LanguageID, LocationID, RoleID) VALUES
     (@username, @firstname, @lastname, @email, Convert(datetime, @birthdate), @hash, @gender, @languageId,
     @locationId, @roleId)
 GO;
