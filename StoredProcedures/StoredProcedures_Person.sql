@@ -31,3 +31,11 @@ as
     insert into ResetRequests (ConfirmationCode, CreationDate, PersonUsername)
     values (@confirmationCode, @creationDate, @personUsername)
 go;
+
+create procedure SP_Pe_GetHash
+    @id bigint
+as
+    select p.hash
+    from Person p
+    where p.ID = @id
+GO;
