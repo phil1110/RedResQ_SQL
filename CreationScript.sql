@@ -104,7 +104,8 @@ create table ResetRequests
 (
     [ID] BIGINT not null primary key identity(1,1),
     [ConfirmationCode] int not null,
-    [CreationDate] date not null,
+    [CreationDate] datetime not null,
+    [ExpirationDate] datetime,
     [PersonUsername] VARCHAR(255) not null foreign key references Person(username)
 );
 Go

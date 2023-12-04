@@ -23,15 +23,6 @@ as
     where email = @email
 go;
 
-create procedure SP_Pe_RequestPasswordReset
-    @confirmationCode int,
-    @creationDate datetime,
-    @personUsername varchar(255)
-as
-    insert into ResetRequests (ConfirmationCode, CreationDate, PersonUsername)
-    values (@confirmationCode, @creationDate, @personUsername)
-go;
-
 create procedure SP_Pe_GetHash
     @id bigint
 as
