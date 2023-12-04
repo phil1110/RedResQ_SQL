@@ -1,4 +1,4 @@
-create procedure SP_Pe_RequestPasswordReset
+create procedure SP_Rr_RequestPasswordReset
     @personEmail varchar(1000)
 as
     Declare @confirmationCode as int = (
@@ -16,10 +16,10 @@ as
     insert into ResetRequests (ConfirmationCode, CreationDate,PersonUsername)
     values (@confirmationCode, @creationDate, @personUsername);
 
-    return @confirmationCode;
+    select @confirmationCode as 'confirmationCode';
 go;
 
-create procedure SP_Pe_ConfirmPasswordReset
+create procedure SP_Rr_ConfirmPasswordReset
     @confirmationCode int,
     @personEmail varchar(255),
     @hash varchar(1000)
@@ -46,10 +46,10 @@ as
             set hash = @hash
             where username = @personUsername;
 
-            return 1;
+            select 1 as 'output';
         end
     else
         begin
-            return 0;
+            select 0 as 'output';
         end
 go;
