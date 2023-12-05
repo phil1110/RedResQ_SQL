@@ -53,3 +53,30 @@ as
             select 0 as 'output';
         end
 go;
+
+create procedure SP_Rr_CheckValidity
+    @confirmationCode int,
+    @personEmail varchar(255)
+as
+    Declare @currentDateTime as datetime = (
+        Select CURRENT_TIMESTAMP
+    );
+
+    if EXISTS(
+        select *
+        from ResetRequests r
+        left join Person p
+        on r.PersonUsername = p.username
+        where r.CreationDate < @currentDateTime
+        and @currentDateTime < r.ExpirationDate
+        and r.ConfirmationCode = @confirmationCode
+        and p.email = @personEmail
+    )
+        begin
+            select 1 as 'output';
+        end
+    else
+        begin
+            select 0 as 'output';
+        end
+go;
