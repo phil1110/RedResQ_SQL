@@ -270,7 +270,8 @@ VALUES
     ('User'),
     ('Moderator'),
     ('Editor'),
-    ('Administrator');
+    ('Administrator'),
+    ('Super Administrator');
 
 INSERT INTO Gender ([name])
 VALUES

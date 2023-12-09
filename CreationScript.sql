@@ -106,8 +106,13 @@ create table ResetRequests
     [ConfirmationCode] int not null,
     [CreationDate] datetime not null,
     [ExpirationDate] datetime,
-    [PersonUsername] VARCHAR(255) not null foreign key references Person(username)
+    [PersonUsername] VARCHAR(255) not null foreign key references Person(username) ON DELETE CASCADE
 );
 Go
 
-
+create table Permission
+(
+    [PermissionName] varchar(500) primary key not null,
+    [RoleID] bigint foreign key references Role(ID) ON DELETE CASCADE
+);
+GO
