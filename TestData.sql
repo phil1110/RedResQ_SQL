@@ -1,34 +1,9 @@
-Insert Into Country ([country])
-VALUES
-    ('United States'),
-    ('United Kingdom'),
-    ('France'),
-    ('Germany'),
-    ('Japan'),
-    ('Canada'),
-    ('Australia'),
-    ('Brazil'),
-    ('China'),
-    ('India'),
-    ('South Africa'),
-    ('Mexico'),
-    ('Italy'),
-    ('Spain'),
-    ('South Korea'),
-    ('Russia'),
-    ('Argentina'),
-    ('Turkey'),
-    ('Netherlands'),
-    ('Sweden'),
-    ('Norway'),
-    ('Saudi Arabia'),
-    ('Singapore'),
-    ('Switzerland'),
-    ('Greece'),
-    ('Thailand'),
-    ('Egypt'),
-    ('New Zealand'),
-    ('Ireland');
+BULK INSERT Country
+FROM '/var/opt/mssql/data/countries'
+WITH (
+    FIELDTERMINATOR = ';',
+    ROWTERMINATOR = '0x0a'
+);
 
 
 INSERT INTO Location ([city], [postalCode], [CountryID])
