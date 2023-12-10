@@ -6,4 +6,7 @@ VALUES
     ('updatePermission', 6),
     ('addCountry', 6),
     ('editCountry', 6),
-    ('deleteCountry', 6);
+    ('deleteCountry', 6),
+    ('addGender', 5),
+    ('editGender', 5),
+    ('deleteGender', 5);
