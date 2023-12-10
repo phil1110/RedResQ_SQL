@@ -9,4 +9,7 @@ VALUES
     ('deleteCountry', 6),
     ('addGender', 5),
     ('editGender', 5),
-    ('deleteGender', 5);
+    ('deleteGender', 5),
+    ('addLanguage', 5),
+    ('editLanguage', 5),
+    ('deleteLanguage', 5);
