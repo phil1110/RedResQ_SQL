@@ -243,8 +243,8 @@ INSERT INTO Role ([name])
 VALUES
     ('Guest'),
     ('User'),
-    ('Moderator'),
     ('Editor'),
+    ('Moderator'),
     ('Administrator'),
     ('Super Administrator');
 
