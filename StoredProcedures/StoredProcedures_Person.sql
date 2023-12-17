@@ -97,3 +97,42 @@ as
     set RoleID = @roleId
     where ID = @id
 go;
+
+create procedure SP_Pe_SearchForUser
+    @searchString varchar(1000)
+as
+    begin
+    select top 25 *
+    from V_Login v
+    where v.username like '%' + @searchString + '%'
+    or v.firstname like '%' + @searchString + '%'
+    or v.lastname like '%' + @searchString + '%'
+    or v.email like '%' + @searchString + '%'
+    order by
+            case
+                when v.username = @SearchString then 1
+                when v.firstname = @SearchString then 2
+                when v.lastname = @SearchString then 3
+                when v.email = @SearchString then 4
+                else 5
+            end
+    end
+go;
+
+create procedure SP_Pe_CheckUsername
+    @username varchar(255)
+as
+    begin
+        select ID from Person
+        where username = @username;
+    end
+go;
+
+create procedure SP_Pe_CheckEmail
+    @email varchar(1000)
+as
+    begin
+        select ID from Person
+        where email = @email;
+    end
+go;
