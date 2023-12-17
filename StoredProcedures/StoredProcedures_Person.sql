@@ -88,3 +88,12 @@ as
     from Person
     where ID = @id
 go;
+
+create procedure SP_Pe_SetRole
+    @id bigint,
+    @roleId bigint
+as
+    update Person
+    set RoleID = @roleId
+    where ID = @id
+go;

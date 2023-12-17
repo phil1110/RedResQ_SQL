@@ -23,4 +23,8 @@ VALUES
     ('getAnyUser', 4),
     ('getPersonalUser', 2),
     ('editUser', 5),
-    ('deleteUser', 5);
+    ('deleteUser', 5),
+    ('promoteToEditor', 5),
+    ('promoteToModerator', 5),
+    ('promoteToAdministrator', 6),
+    ('promoteToSuperAdministrator', 6);
