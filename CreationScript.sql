@@ -116,3 +116,31 @@ create table Permission
     [RoleID] bigint foreign key references Role(ID) ON DELETE CASCADE
 );
 GO
+
+create table Access
+(
+    [TokenType] varchar(10) not null,
+    [Timestamp] datetime not null,
+    [IpAddress] varchar(20) not null,
+    [UserID] bigint foreign key references Person(ID) on delete cascade,
+    [URL] varchar(500) not null,
+    [Method] varchar(20) not null
+);
+GO
+
+create table GuestTokens
+(
+    [IpAddress] varchar(20) not null,
+    [TimeStamp] datetime not null,
+    [ValidUntil] datetime not null
+);
+GO
+
+create table AccessTokens
+(
+    [IpAddress] varchar(20) not null,
+    [TimeStamp] datetime not null,
+    [ValidUntil] datetime not null,
+    [UserID] bigint foreign key references Person(ID) on delete cascade not null
+);
+GO
