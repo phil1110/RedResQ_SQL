@@ -50,6 +50,12 @@ VALUES
     ('searchForUser', 4),
     ('checkExistenceOfEmailOrUsername', 1),
 
+    -- Image related Permissions
+    ('getImage', 2),
+    ('addImage', 3),
+    ('deleteImage', 5),
+    ('searchImage', 2),
+
     -- Role related Permissions
     ('getRole', 5),
     ('fetchRoles', 5),

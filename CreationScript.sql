@@ -30,7 +30,14 @@ GO
 CREATE TABLE Image
 (
     [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
-    [source] VARCHAR(1000) NOT NULL
+    [base64] VARCHAR(max) NOT NULL unique
+);
+GO
+
+create table QuizType
+(
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [name] varchar(20) not null
 );
 GO
 
@@ -38,7 +45,17 @@ CREATE TABLE Quiz
 (
     [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [name] VARCHAR(1000) NOT NULL,
-    [maxScore] int NOT NULL
+    [maxScore] int NOT NULL,
+    [TypeID] bigint not null foreign key references QuizType(ID)
+);
+GO
+
+create table QuizTypeStage
+(
+    [QuizID] bigint not null foreign key references Quiz(ID),
+    [Stage] int not null,
+    [ImageID] bigint not null foreign key references Image(ID),
+    primary key ([QuizID], [Stage])
 );
 GO
 

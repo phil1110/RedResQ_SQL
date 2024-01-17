@@ -63,7 +63,7 @@ VALUES
     ('Swahili'),
     ('Tagalog');
 
-INSERT INTO Image ([source])
+INSERT INTO Image ([base64])
 VALUES
     ('https://example.com/image1.jpg'),
     ('https://example.com/image2.jpg'),
