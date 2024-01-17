@@ -158,6 +158,6 @@ create table AccessTokens
     [IpAddress] varchar(20) not null,
     [TimeStamp] datetime not null,
     [ValidUntil] datetime not null,
-    [UserID] bigint foreign key references Person(ID) on delete cascade not null
+    [UserID] bigint not null foreign key references Person(ID) on delete cascade
 );
 GO

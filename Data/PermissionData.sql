@@ -56,6 +56,9 @@ VALUES
     ('deleteImage', 5),
     ('searchImage', 2),
 
+    -- QuizTypeStage related Permissions
+    ('searchImage', 2),
+
     -- Role related Permissions
     ('getRole', 5),
     ('fetchRoles', 5),
