@@ -37,11 +37,4 @@ as
     order by UserID
 go;
 
-create procedure SP_AcTo_GetUserAccesses
-    @userId bigint
-as
-    select *
-    from AccessTokens
-    where UserID = @userId
-    order by TimeStamp desc
-go;
+

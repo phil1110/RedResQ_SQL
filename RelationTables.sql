@@ -23,7 +23,10 @@ GO
 create table R_HasAnsweredQuestion
 (
     [PersonID] bigint FOREIGN KEY REFERENCES Person(ID) on delete cascade,
-    [QuestionID] BIGINT FOREIGN KEY REFERENCES Question(ID) on delete cascade,
-    [correctAnswerGiven] bit not null
+    [QuizID] bigint not null,
+    [QuestionID] BIGINT not null,
+    [correctAnswerGiven] bit not null,
+    foreign key ([QuizID], [QuestionID])
+    references Question(QuizID, ID) on delete cascade
 );
 GO
