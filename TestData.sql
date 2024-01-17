@@ -1,11 +1,3 @@
-BULK INSERT Country
-FROM '/var/opt/mssql/data/countries'
-WITH (
-    FIELDTERMINATOR = ';',
-    ROWTERMINATOR = '0x0a'
-);
-
-
 INSERT INTO Location ([city], [postalCode], [CountryID])
 VALUES
     ('New York', '10001', 1),
