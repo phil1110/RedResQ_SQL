@@ -46,22 +46,22 @@ CREATE TABLE Quiz
     [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [name] VARCHAR(1000) NOT NULL,
     [maxScore] int NOT NULL,
-    [TypeID] bigint not null foreign key references QuizType(ID)
+    [TypeID] bigint not null foreign key references QuizType(ID) on delete set null
 );
 GO
 
 create table QuizTypeStage
 (
-    [QuizTypeID] bigint not null foreign key references QuizType(ID),
+    [QuizTypeID] bigint not null foreign key references QuizType(ID) on delete cascade,
     [Stage] int not null,
-    [ImageID] bigint not null foreign key references Image(ID),
+    [ImageID] bigint not null foreign key references Image(ID) on delete set null,
     primary key ([QuizTypeID], [Stage])
 );
 GO
 
 CREATE TABLE Question
 (
-    [QuizID] BIGINT NOT NULL FOREIGN KEY REFERENCES Quiz(ID),
+    [QuizID] BIGINT NOT NULL FOREIGN KEY REFERENCES Quiz(ID) on delete cascade,
     [ID] BIGINT NOT NULL,
     [text] VARCHAR(1000) NOT NULL,
     primary key ([QuizID], [ID])
@@ -77,7 +77,7 @@ CREATE TABLE Answer
     [isTrue] bit NOT NULL,
     primary key ([QuizID], [QuestionID], [ID]),
     foreign key ([QuizID], [QuestionID])
-    references Question(QuizID, ID)
+    references Question(QuizID, ID) on delete cascade
 );
 GO
 

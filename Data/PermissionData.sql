@@ -57,14 +57,13 @@ VALUES
     ('searchImage', 2),
 
     -- Answer related Permissions
-    ('getAnswer', 2),
+    ('getAnswer', 3),
     ('addAnswer', 3),
     ('deleteAnswer', 3),
     ('editAnswer', 3),
-    ('searchAnswer', 3),
 
     -- Question related Permissions
-    ('getQuestion', 2),
+    ('getQuestion', 3),
     ('addQuestion', 3),
 
     -- QuizTypeStage related Permissions
