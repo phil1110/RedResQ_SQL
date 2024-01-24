@@ -63,6 +63,10 @@ VALUES
     ('editAnswer', 3),
     ('searchAnswer', 3),
 
+    -- Question related Permissions
+    ('getQuestion', 2),
+    ('addQuestion', 3),
+
     -- QuizTypeStage related Permissions
     -- ('searchImage', 2),
 

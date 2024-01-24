@@ -90,7 +90,7 @@ CREATE TABLE Article
     [date] datetime not null,
     [LanguageID] BIGINT not null FOREIGN key REFERENCES [Language](ID),
     [ImageID] BIGINT foreign key references [Image](ID),
-    [LocationID] BIGINT FOREIGN KEY REFERENCES [Location](ID)
+    [CountryID] bigint foreign key references [Country](ID)
 );
 GO
 

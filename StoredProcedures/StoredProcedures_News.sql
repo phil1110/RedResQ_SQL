@@ -1,87 +1,55 @@
 -- Stored Procedures for Get Requests
-create procedure SP_Ne_LatestArticles_Global
-    @articleId bigint = null
-as
-if (@articleId is null)
-begin
-    select top 10 *
-    from V_Article va
-    order by va.ArticleID desc;
-end
-else
-begin
-    select top 10 *
-    from V_Article va
-    where va.ArticleID < @articleId
-    order by va.ArticleID desc;
-end
-go
+CREATE PROCEDURE SP_Ne_LatestArticles_Global
+    @articleId BIGINT = NULL
+AS
+BEGIN
+    SELECT TOP 10 *
+    FROM V_Article
+    WHERE @articleId IS NULL OR ArticleID < @articleId
+    ORDER BY ArticleID DESC;
+END
+GO
 
-create procedure SP_Ne_LatestArticles_Country
-    @countryId bigint,
-    @articleId bigint = null
-as
-if (@articleId is null)
-begin
-    select top 10 *
-    from V_Article va
-    where va.CountryID = @countryId
-    order by va.ArticleID desc
-end
-else
-begin
-    select top 10 *
-    from V_Article va
-    where va.CountryID = @countryId
-    and va.ArticleID < @articleId
-    order by va.ArticleID desc;
-end
-go
 
-create procedure SP_Ne_LatestArticles_Language
-    @languageId bigint,
-    @articleId bigint = null
-as
-if (@articleId is null)
-begin
-    select top 10 *
-    from V_Article va
-    where va.LanguageID = @languageId
-    order by va.ArticleID desc
-end
-else
-begin
-    select top 10 *
-    from V_Article va
-    where va.LanguageID = @languageId
-    and va.ArticleID < @articleId
-    order by va.ArticleID desc;
-end
-go
+CREATE PROCEDURE SP_Ne_LatestArticles_Country
+    @countryId BIGINT,
+    @articleId BIGINT = NULL
+AS
+BEGIN
+    SELECT TOP 10 *
+    FROM V_Article
+    WHERE CountryID = @countryId AND (@articleId IS NULL OR ArticleID < @articleId)
+    ORDER BY ArticleID DESC;
+END
+GO
 
-create procedure SP_Ne_LatestArticles_CountryAndLanguage
-    @countryId bigint,
-    @languageId bigint,
-    @articleId int = null
-as
-if (@articleId is null)
-begin
-    select top 10 *
-    from V_Article va
-    where va.LanguageID = @languageId
-    and va.CountryID = @countryId
-    order by va.ArticleID desc
-end
-else
-begin
-    select top 10 *
-    from V_Article va
-    where va.LanguageID = @languageId
-    and va.CountryID = @countryId
-    and va.ArticleID < @articleId
-    order by va.ArticleID desc;
-end
-go
+CREATE PROCEDURE SP_Ne_LatestArticles_Language
+    @languageId BIGINT,
+    @articleId BIGINT = NULL
+AS
+BEGIN
+    SELECT TOP 10 *
+    FROM V_Article
+    WHERE LanguageID = @languageId AND (@articleId IS NULL OR ArticleID < @articleId)
+    ORDER BY ArticleID DESC;
+END
+GO
+
+
+CREATE PROCEDURE SP_Ne_LatestArticles_CountryAndLanguage
+    @countryId BIGINT,
+    @languageId BIGINT,
+    @articleId INT = NULL
+AS
+BEGIN
+    SELECT TOP 10 *
+    FROM V_Article
+    WHERE LanguageID = @languageId
+        AND CountryID = @countryId
+        AND (@articleId IS NULL OR ArticleID < @articleId)
+    ORDER BY ArticleID DESC;
+END
+GO
 
 create procedure SP_Ne_SpecificArticle
     @id bigint
@@ -99,37 +67,31 @@ create procedure SP_Ne_NewArticle
     @date datetime,
     @languageId bigint,
     @imageId bigint,
-    @locationId bigint
+    @countryId bigint
 as
-    insert into Article (title, content, author, date, LanguageID, ImageID, LocationID)
-    VALUES (@title, @content, @author, convert(datetime, @date), @languageId, @imageId, @locationId)
+    insert into Article (title, content, author, date, LanguageID, ImageID, CountryID)
+    VALUES (@title, @content, @author, convert(datetime, @date), @languageId, @imageId, @countryId)
 go;
 
 -- Stored Procedures for Put Requests
-create procedure SP_Ne_UpdateArticle
-    @id bigint,
-    @title varchar(255) = null,
-    @content varchar(max) = null
-as
-    if (@title is not null)
-    begin
-        update Article
-        set title = @title
-        where ID = @id
-    end
-    if (@content is not null)
-    begin
-        Update Article
-        set content = @content
-        where ID = @id
-    end
-go;
+CREATE PROCEDURE SP_Ne_UpdateArticle
+    @id BIGINT,
+    @title VARCHAR(255) = NULL,
+    @content VARCHAR(MAX) = NULL
+AS
+BEGIN
+    UPDATE Article
+    SET title = ISNULL(@title, title),
+        content = ISNULL(@content, content)
+    WHERE ID = @id;
+END
+GO;
 
 -- Stored Procedures for Delete Requests
 create procedure SP_Ne_DeleteArticle
     @id bigint
 as
-delete
-from Article
-where ID = @id
+    delete
+    from Article
+    where ID = @id
 go;
