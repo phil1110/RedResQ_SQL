@@ -4,7 +4,7 @@ go
 create view V_Article
 as
 select a.ID as [ArticleID], a.title, a.content, a.author, a.date, ln.ID as [LanguageID], ln.name, im.ID as [ImageID],
-       im.base64, co.ID as [CountryID], co.country
+       im.Description, im.bytes, co.ID as [CountryID], co.country
 from Article a
 left join Language ln
 on a.LanguageID = ln.ID

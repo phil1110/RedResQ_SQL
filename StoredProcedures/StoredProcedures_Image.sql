@@ -10,17 +10,22 @@ as
 go;
 
 create procedure SP_Im_AddImage
-    @base64 varchar(max)
+    @description varchar(300),
+    @bytes varbinary(max)
 as
     if(NOT EXISTS (
         select *
         from Image
-        where base64 = @base64
+        where bytes = @bytes
     ))
     begin
-        insert into Image ([base64])
-        values (@base64)
+        insert into Image ([Description],[bytes])
+        values (@description, @bytes)
     end
+
+    select ID
+    from Image
+    where bytes = @bytes
 go;
 
 create procedure SP_Im_DeleteImage
@@ -31,9 +36,9 @@ as
 go;
 
 create procedure SP_Im_SearchImage
-    @base64 varchar(max)
+    @desc varchar(300)
 as
-    select *
+    select top 10 ID, Description
     from Image
-    where base64 = @base64
+    where Description like @desc
 go;
