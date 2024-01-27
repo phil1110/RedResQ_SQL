@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Pe_ConfirmIdentity
     @email VARCHAR(1000)
 as

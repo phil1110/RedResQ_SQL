@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Se_Register
     @username VARCHAR(255),
     @firstname VARCHAR(255),

@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_An_GetAnswer
     @quizId bigint,
     @questionId bigint,

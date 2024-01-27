@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create view V_Article
 as
 select a.ID as [ArticleID], a.title, a.content, a.author, a.date, ln.ID as [LanguageID], ln.name, im.ID as [ImageID],

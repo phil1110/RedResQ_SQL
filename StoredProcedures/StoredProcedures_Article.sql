@@ -1,5 +1,8 @@
+use RedResQ
+go
+
 -- Stored Procedures for Get Requests
-CREATE PROCEDURE SP_Ne_LatestArticles_Global
+CREATE PROCEDURE SP_Ar_LatestArticles_Global
     @articleId BIGINT = NULL
 AS
 BEGIN
@@ -11,7 +14,7 @@ END
 GO
 
 
-CREATE PROCEDURE SP_Ne_LatestArticles_Country
+CREATE PROCEDURE SP_Ar_LatestArticles_Country
     @countryId BIGINT,
     @articleId BIGINT = NULL
 AS
@@ -23,7 +26,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE SP_Ne_LatestArticles_Language
+CREATE PROCEDURE SP_Ar_LatestArticles_Language
     @languageId BIGINT,
     @articleId BIGINT = NULL
 AS
@@ -36,7 +39,7 @@ END
 GO
 
 
-CREATE PROCEDURE SP_Ne_LatestArticles_CountryAndLanguage
+CREATE PROCEDURE SP_Ar_LatestArticles_CountryAndLanguage
     @countryId BIGINT,
     @languageId BIGINT,
     @articleId INT = NULL
@@ -51,7 +54,7 @@ BEGIN
 END
 GO
 
-create procedure SP_Ne_SpecificArticle
+create procedure SP_Ar_SpecificArticle
     @id bigint
 as
     select *
@@ -60,7 +63,7 @@ as
 go;
 
 -- Stored Procedures for Post Requests
-create procedure SP_Ne_NewArticle
+create procedure SP_Ar_NewArticle
     @title varchar(255),
     @content varchar(max),
     @author varchar(255),
@@ -74,7 +77,7 @@ as
 go;
 
 -- Stored Procedures for Put Requests
-CREATE PROCEDURE SP_Ne_UpdateArticle
+CREATE PROCEDURE SP_Ar_UpdateArticle
     @id BIGINT,
     @title VARCHAR(255) = NULL,
     @content VARCHAR(MAX) = NULL
@@ -88,7 +91,7 @@ END
 GO;
 
 -- Stored Procedures for Delete Requests
-create procedure SP_Ne_DeleteArticle
+create procedure SP_Ar_DeleteArticle
     @id bigint
 as
     delete

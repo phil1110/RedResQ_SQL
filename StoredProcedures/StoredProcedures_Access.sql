@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Ac_LogAccess
     @tokenType varchar(10),
     @timestamp datetime,

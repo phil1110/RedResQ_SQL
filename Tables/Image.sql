@@ -1,0 +1,9 @@
+USE RedResQ
+GO
+
+CREATE TABLE Image
+(
+    [ID] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [base64] VARCHAR(max) NOT NULL
+);
+GO

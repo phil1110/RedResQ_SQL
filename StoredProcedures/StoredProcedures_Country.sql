@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Co_GetCountries
 as
     select *

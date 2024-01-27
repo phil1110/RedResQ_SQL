@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Rr_RequestPasswordReset
     @personEmail varchar(1000)
 as
@@ -13,7 +16,7 @@ as
         where p.email = @personEmail
     );
 
-    insert into ResetRequests (ConfirmationCode, CreationDate,PersonUsername)
+    insert into ResetRequest (ConfirmationCode, CreationDate,PersonUsername)
     values (@confirmationCode, @creationDate, @personUsername);
 
     select @confirmationCode as 'confirmationCode';
@@ -35,7 +38,7 @@ as
 
     if EXISTS(
         select *
-        from ResetRequests r
+        from ResetRequest r
         where r.PersonUsername = @personUsername
         and r.ConfirmationCode = @confirmationCode
         and r.CreationDate < @currentDateTime
@@ -64,7 +67,7 @@ as
 
     if EXISTS(
         select *
-        from ResetRequests r
+        from ResetRequest r
         left join Person p
         on r.PersonUsername = p.username
         where r.CreationDate < @currentDateTime

@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Im_GetImage
     @id bigint
 as

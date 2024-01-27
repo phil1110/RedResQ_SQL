@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create PROCEDURE SP_Pm_GetPermission
     @permissionName varchar(500)
 as

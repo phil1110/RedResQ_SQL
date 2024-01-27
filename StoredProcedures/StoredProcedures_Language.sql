@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_La_GetAllLanguages
 as
     select *

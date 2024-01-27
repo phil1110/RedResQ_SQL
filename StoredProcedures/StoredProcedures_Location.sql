@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Lo_GetLocation
     @id bigint
 as

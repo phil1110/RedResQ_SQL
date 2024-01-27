@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Ro_GetRole
     @id bigint
 as

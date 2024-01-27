@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 create procedure SP_Ge_GetAllGenders
 as
     select *
