@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 CREATE TABLE Answer
 (
     [QuizID] bigint not null,

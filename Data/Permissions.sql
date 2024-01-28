@@ -56,18 +56,8 @@ VALUES
     ('deleteImage', 5),
     ('searchImage', 2),
 
-    -- Answer related Permissions
-    ('getAnswer', 3),
-    ('addAnswer', 3),
-    ('deleteAnswer', 3),
-    ('editAnswer', 3),
-
-    -- Question related Permissions
-    ('getQuestion', 3),
-    ('addQuestion', 3),
-
-    -- QuizTypeStage related Permissions
-    -- ('searchImage', 2),
+    -- Quiz related Permissions
+    ('getQuiz', 2),
 
     -- Role related Permissions
     ('getRole', 5),
