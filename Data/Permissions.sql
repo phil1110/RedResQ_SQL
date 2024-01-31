@@ -1,14 +1,8 @@
 insert into Permission (PermissionName, RoleID)
 VALUES
-    -- News related Permissions
-    ('getArticle', 2),
-    ('publishArticle', 3),
-    ('editArticle', 3),
-    ('deleteArticle', 5),
-
-    -- Permission related Permissions
-    ('getPermission', 6),
-    ('updatePermission', 6),
+    -- Auth related Permissions
+    ('register', 1),
+    ('login', 1),
 
     -- Country related Permissions
     ('getCountry', 1),
@@ -35,9 +29,34 @@ VALUES
     ('editLocation', 5),
     ('deleteLocation', 5),
 
+    -- News related Permissions
+    ('getArticle', 2),
+    ('publishArticle', 3),
+    ('editArticle', 3),
+    ('deleteArticle', 5),
+
+    -- Permission related Permissions
+    ('getPermission', 6),
+    ('updatePermission', 6),
+
+    -- Quiz related Permissions
+    ('getQuiz', 2),
+    ('addQuiz', 3),
+    ('editQuiz', 3),
+    ('deleteQuiz', 5),
+
+    -- Reset Request related Permissions
+    ('requestReset', 1),
+    ('confirmReset', 1),
+    ('checkReset', 1),
+
+    -- Role related Permissions
+    ('getRole', 5),
+    ('fetchRoles', 5),
+
     -- User related Permissions
     ('fetchUsers', 4),
-    ('getAnyUser', 4),
+    ('getSpecificUser', 4),
     ('getPersonalUser', 2),
     ('editUser', 5),
     ('editPersonalUser', 2),
@@ -48,26 +67,5 @@ VALUES
     ('promoteToAdministrator', 6),
     ('promoteToSuperAdministrator', 6),
     ('searchForUser', 4),
-    ('checkExistenceOfEmailOrUsername', 1),
-
-    -- Image related Permissions
-    ('getImage', 2),
-    ('addImage', 3),
-    ('deleteImage', 5),
-    ('searchImage', 2),
-
-    -- Quiz related Permissions
-    ('getQuiz', 2),
-
-    -- Role related Permissions
-    ('getRole', 5),
-    ('fetchRoles', 5),
-
-    -- Session related Permissions
-    ('register', 1),
-    ('login', 1),
-
-    -- Reset related Permissions
-    ('requestReset', 1),
-    ('confirmReset', 1),
-    ('checkReset', 1);
+    ('checkExistenceOfEmail', 1),
+    ('checkExistenceOfUsername', 1);
