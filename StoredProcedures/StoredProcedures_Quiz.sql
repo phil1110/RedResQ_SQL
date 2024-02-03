@@ -5,10 +5,12 @@ create procedure SP_Qz_FetchQuizzes
     @amount int = 25,
     @id bigint = 0
 as
-    select top(@amount) *
-    from Quiz
-    where ID > @id
-    order by ID
+    select top(@amount) q.ID, q.name, q.maxScore, q.TypeID, qt.ID as 'QuizTypeID', qt.name as 'QuizTypeName'
+    from Quiz q
+    left join QuizType qt
+    on q.TypeID = qt.ID
+    where q.ID > @id
+    order by q.ID
 go;
 
 create procedure SP_Qz_GetQuiz

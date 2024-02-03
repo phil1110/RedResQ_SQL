@@ -39,6 +39,12 @@ VALUES
     ('getPermission', 6),
     ('updatePermission', 6),
 
+    -- Question related Permissions
+    ('getQuestion', 3),
+    ('addQuestion', 3),
+    ('editQuestion', 3),
+    ('deleteQuestion', 5),
+
     -- Quiz related Permissions
     ('getQuiz', 2),
     ('addQuiz', 3),
