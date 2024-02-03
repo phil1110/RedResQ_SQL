@@ -1,6 +1,14 @@
 use RedResQ
 go;
 
+create procedure SP_Qn_FetchQuestions
+    @quizId bigint
+as
+    select QuizID, ID, text
+    from Question
+    where QuizID = @quizId
+go;
+
 create procedure SP_Qn_GetQuestion
     @quizId bigint,
     @id bigint

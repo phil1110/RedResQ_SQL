@@ -1,5 +1,11 @@
 insert into Permission (PermissionName, RoleID)
 VALUES
+    -- Answer related Permissions
+    ('getAnswer', 3),
+    ('addAnswer', 3),
+    ('editAnswer', 3),
+    ('deleteAnswer', 5),
+
     -- Auth related Permissions
     ('register', 1),
     ('login', 1),
