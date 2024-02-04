@@ -6,6 +6,10 @@ VALUES
     ('editAnswer', 3),
     ('deleteAnswer', 5),
 
+    -- Attempt related Permissions
+    ('getResult', 2),
+    ('addAttempt', 2),
+
     -- Auth related Permissions
     ('register', 1),
     ('login', 1),
