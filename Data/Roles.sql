@@ -1,3 +1,6 @@
+use RedResQ
+go
+
 INSERT INTO Role ([name])
 VALUES
     ('Guest'),

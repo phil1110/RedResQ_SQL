@@ -5,7 +5,7 @@ create procedure SP_Co_GetCountries
 as
     select *
     from Country c
-    order by c.country asc
+    order by c.country
 go;
 
 create procedure SP_Co_GetCountry
@@ -14,7 +14,7 @@ as
     select *
     from Country c
     where c.ID = @id
-    order by c.country asc
+    order by c.country
 go;
 
 

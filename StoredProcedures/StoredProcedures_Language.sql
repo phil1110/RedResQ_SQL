@@ -5,7 +5,7 @@ create procedure SP_La_GetAllLanguages
 as
     select *
     from Language
-    order by name asc
+    order by name
 go;
 
 create procedure SP_La_GetLanguage

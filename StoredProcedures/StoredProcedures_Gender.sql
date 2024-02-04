@@ -5,7 +5,7 @@ create procedure SP_Ge_GetAllGenders
 as
     select *
     from Gender
-    order by ID asc
+    order by ID
 go;
 
 create procedure SP_Ge_GetGender
@@ -14,7 +14,7 @@ as
     select *
     from Gender
     where ID = @id
-    order by ID asc
+    order by ID
 go;
 
 create procedure SP_Ge_AddGender

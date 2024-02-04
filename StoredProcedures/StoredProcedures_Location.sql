@@ -28,14 +28,14 @@ as
     begin
         select top 10 *
         from V_Location v
-        order by v.ID asc;
+        order by v.ID;
     end
     else
     begin
         select top 10 *
         from V_Location v
         where v.ID > @id
-        order by v.ID asc;
+        order by v.ID;
     end
 go;
 
