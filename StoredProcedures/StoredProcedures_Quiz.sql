@@ -3,13 +3,17 @@ go;
 
 create procedure SP_Qz_FetchQuizzes
     @amount int = 25,
-    @id bigint = 0
+    @id bigint = 0,
+    @query varchar(1000) = null,
+    @quizTypeId bigint = null
 as
     select top(@amount) q.ID, q.name, q.maxScore, q.TypeID, qt.ID as 'QuizTypeID', qt.name as 'QuizTypeName'
     from Quiz q
     left join QuizType qt
     on q.TypeID = qt.ID
     where q.ID > @id
+    and (q.name LIKE '%' + @query + '%' or @query is null)
+    and (q.TypeID = @quizTypeId or @quizTypeId is null)
     order by q.ID
 go;
 
