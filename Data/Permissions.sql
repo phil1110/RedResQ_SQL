@@ -57,6 +57,12 @@ VALUES
     ('editQuiz', 3),
     ('deleteQuiz', 5),
 
+    -- QuizType related Permissions
+    ('getQuizType', 2),
+    ('addQuizType', 3),
+    ('editQuizType', 3),
+    ('deleteQuizType', 5),
+
     -- Reset Request related Permissions
     ('requestReset', 1),
     ('confirmReset', 1),
