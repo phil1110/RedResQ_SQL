@@ -14,6 +14,9 @@ VALUES
     ('register', 1),
     ('login', 1),
 
+    -- Coordinates related Permissions
+    ('logCoordinates', 2),
+
     -- Country related Permissions
     ('getCountry', 1),
     ('addCountry', 6),
@@ -44,6 +47,9 @@ VALUES
     ('publishArticle', 3),
     ('editArticle', 3),
     ('deleteArticle', 5),
+
+    -- Notification related Permissions
+    ('sendNotification', 4),
 
     -- Permission related Permissions
     ('getPermission', 6),
