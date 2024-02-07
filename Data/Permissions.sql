@@ -29,6 +29,18 @@ VALUES
     ('editGender', 5),
     ('deleteGender', 5),
 
+    -- Hazard related Permissions
+    ('getHazard', 5),
+    ('addHazard', 5),
+    ('editHazard', 5),
+    ('deleteHazard', 6),
+
+    -- HazardType related Permission
+    ('getHazardType', 5),
+    ('addHazardType', 5),
+    ('editHazardType', 5),
+    ('deleteHazardType', 6),
+
     -- Language related Permissions
     ('getLanguage', 1),
     ('addLanguage', 5),
