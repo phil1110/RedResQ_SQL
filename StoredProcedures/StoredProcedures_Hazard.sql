@@ -16,7 +16,7 @@ as
     select top(@amount) *
     from V_Hazard
     where ID > @id
-    order by ID
+    order by ID desc
 go;
 
 create procedure SP_Hz_AddHazard
