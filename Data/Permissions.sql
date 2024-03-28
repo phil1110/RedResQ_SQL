@@ -35,6 +35,9 @@ VALUES
     ('editHazard', 5),
     ('deleteHazard', 6),
 
+    -- HazardTopic related Permissions
+    ('getTopics', 2),
+
     -- HazardType related Permission
     ('getHazardType', 5),
     ('addHazardType', 5),

@@ -10,13 +10,22 @@ as
 go;
 
 create procedure SP_Hz_FetchHazards
-    @id bigint = 0,
+    @id bigint = null,
     @amount int = 25
 as
-    select top(@amount) *
-    from V_Hazard
-    where ID > @id
-    order by ID desc
+    if @id is null
+    begin
+        select top(@amount) *
+        from V_Hazard
+        order by ID desc
+    end
+    else
+    begin
+        select top(@amount) *
+        from V_Hazard
+        where ID < @id
+        order by ID desc
+    end
 go;
 
 create procedure SP_Hz_AddHazard
