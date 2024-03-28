@@ -2,57 +2,24 @@ use RedResQ
 go
 
 -- Stored Procedures for Get Requests
-CREATE PROCEDURE SP_Ar_LatestArticles_Global
-    @articleId BIGINT = NULL
+CREATE PROCEDURE SP_Ar_FetchArticles
+    @articleId BIGINT = NULL,
+    @countryId BIGINT = NULL,
+    @languageId BIGINT = NULL,
+    @query varchar(max) = null
 AS
 BEGIN
     SELECT TOP 10 *
     FROM V_Article
-    WHERE @articleId IS NULL OR ArticleID < @articleId
-    ORDER BY ArticleID DESC;
-END
-GO
-
-
-CREATE PROCEDURE SP_Ar_LatestArticles_Country
-    @countryId BIGINT,
-    @articleId BIGINT = NULL
-AS
-BEGIN
-    SELECT TOP 10 *
-    FROM V_Article
-    WHERE CountryID = @countryId AND (@articleId IS NULL OR ArticleID < @articleId)
-    ORDER BY ArticleID DESC;
-END
-GO
-
-CREATE PROCEDURE SP_Ar_LatestArticles_Language
-    @languageId BIGINT,
-    @articleId BIGINT = NULL
-AS
-BEGIN
-    SELECT TOP 10 *
-    FROM V_Article
-    WHERE LanguageID = @languageId AND (@articleId IS NULL OR ArticleID < @articleId)
-    ORDER BY ArticleID DESC;
-END
-GO
-
-
-CREATE PROCEDURE SP_Ar_LatestArticles_CountryAndLanguage
-    @countryId BIGINT,
-    @languageId BIGINT,
-    @articleId INT = NULL
-AS
-BEGIN
-    SELECT TOP 10 *
-    FROM V_Article
-    WHERE LanguageID = @languageId
-        AND CountryID = @countryId
+    WHERE (@countryId IS NULL OR CountryID = @countryId)
+        AND (@languageId IS NULL OR LanguageID = @languageId)
         AND (@articleId IS NULL OR ArticleID < @articleId)
+        And (@query is null or
+             (title like '%' + @query + '%'
+                or content like '%' + @query + '%'))
     ORDER BY ArticleID DESC;
 END
-GO
+GO;
 
 create procedure SP_Ar_SpecificArticle
     @id bigint
