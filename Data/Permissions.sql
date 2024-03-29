@@ -97,6 +97,12 @@ VALUES
     ('getRole', 5),
     ('fetchRoles', 5),
 
+    -- Stat related Permissions
+    ('getStat', 4),
+
+    -- StatType related Permissions
+    ('getStatType', 4),
+
     -- User related Permissions
     ('fetchUsers', 4),
     ('getSpecificUser', 4),
