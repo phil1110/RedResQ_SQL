@@ -7,7 +7,12 @@ create procedure SP_Qz_FetchQuizzes
     @query varchar(1000) = null,
     @quizTypeId bigint = null
 as
-    select top(@amount) q.ID, q.name, q.maxScore, q.TypeID, qt.ID as 'QuizTypeID', qt.name as 'QuizTypeName'
+    if @quizTypeId <= 0
+    begin
+        set @quizTypeId = null;
+    end
+
+    select top(@amount) q.ID, q.name, q.maxScore, qt.ID as 'QuizTypeID', qt.name as 'QuizTypeName'
     from Quiz q
     left join QuizType qt
     on q.TypeID = qt.ID
