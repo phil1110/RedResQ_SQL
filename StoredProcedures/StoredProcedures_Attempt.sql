@@ -26,19 +26,21 @@ go;
 create procedure SP_At_GetResult
     @quizId bigint,
     @userId bigint,
-    @attemptId bigint
+    @attemptId bigint,
+    @score int output -- Declare output parameter
 as
+begin
     declare @correctAnswers float = (
-    select count(*)
-    from GivenAnswer ga
-    inner join dbo.Answer A
-    on A.QuizID = ga.QuizID
-    and A.QuestionID = ga.QuestionID
-    and A.ID = ga.AnswerID
-    where isTrue = 1
-    and ga.QuizID = @quizId
-    and ga.UserID = @userId
-    and ga.AttemptID = @attemptId
+        select count(*)
+        from GivenAnswer ga
+        inner join dbo.Answer A
+        on A.QuizID = ga.QuizID
+        and A.QuestionID = ga.QuestionID
+        and A.ID = ga.AnswerID
+        where isTrue = 1
+        and ga.QuizID = @quizId
+        and ga.UserID = @userId
+        and ga.AttemptID = @attemptId
     );
 
     declare @totalAnswers float = (
@@ -47,17 +49,20 @@ as
         where ga.QuizID = @quizId
         and ga.UserID = @userId
         and ga.AttemptID = @attemptId
-        );
+    );
 
     if (@totalAnswers = 0)
         set @totalAnswers = 1;
 
-    select round(q.maxScore * (@correctAnswers / @totalAnswers), 0)
-    from GivenAnswer ga
-    inner join Quiz q
-    on ga.QuizID = q.ID
-    where ga.QuizID = @quizId
-    and ga.UserID = @userId
-    and ga.AttemptID = @attemptId
-    group by ga.QuizID, q.maxScore
+    set @score = (
+        select round(q.maxScore * (@correctAnswers / @totalAnswers), 0)
+        from GivenAnswer ga
+        inner join Quiz q
+        on ga.QuizID = q.ID
+        where ga.QuizID = @quizId
+        and ga.UserID = @userId
+        and ga.AttemptID = @attemptId
+        group by ga.QuizID, q.maxScore
+    );
+end
 go;
