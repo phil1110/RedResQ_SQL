@@ -13,6 +13,8 @@ as
         and a.UserID = @userId
         );
 
+    begin transaction;
+
     insert into Attempt(id, quizid, userid)
     values (@id, @quizId, @userId);
 
@@ -20,8 +22,29 @@ as
     select @id, @quizId, @userId, d.QuestionID, d.AnswerID
     from @data d;
 
+    commit;
+
+    exec SP_At_AddResult @attemptId = @id, @quizId = @quizId, @userId = @userId;
+
     select @id;
 go;
+
+create procedure SP_At_AddResult
+    @attemptId bigint,
+    @quizId bigint,
+    @userId bigint
+as
+begin
+    declare @score int;
+
+    exec SP_At_GetResult @quizId = @quizId, @userId = @userId, @attemptId = @attemptId, @score = @score output;
+
+    insert into AttemptScore (AttemptID, QuizID, UserID, Score)
+    values (@attemptId, @quizId, @userId, @score)
+end
+go;
+
+
 
 create procedure SP_At_GetResult
     @quizId bigint,
