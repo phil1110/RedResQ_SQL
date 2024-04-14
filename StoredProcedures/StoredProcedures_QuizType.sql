@@ -2,14 +2,11 @@ use RedResQ
 go
 
 create procedure SP_Qt_FetchQuizTypes
-    @amount int = 25,
-    @id bigint = 0,
     @name varchar(20) = null
 as
-    select top(@amount) *
+    select *
     from QuizType
-    where ID > @id
-    and (name like '%' + @name + '%' or @name is null)
+    where (name like '%' + @name + '%' or @name is null)
     order by ID
 go;
 
