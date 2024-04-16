@@ -1,7 +1,7 @@
 use RedResQ
 go
 
-create procedure STAT_Quiz_LeastAttempts
+create procedure STAT_Quiz_1_LeastAttempts
 as
     select top(25) CONCAT(q.name, ' (ID: ', q.ID, ')') as [Name], COUNT(*) as [Attempts]
     from Quiz q
@@ -11,7 +11,7 @@ as
     order by [Attempts]
 go
 
-create procedure STAT_Quiz_MostAttempts
+create procedure STAT_Quiz_1_MostAttempts
 as
     select top(25) CONCAT(q.name, ' (ID: ', q.ID, ')') as [Name], COUNT(*) as [Attempts]
     from Quiz q
