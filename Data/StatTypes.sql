@@ -7,6 +7,9 @@ go
 
 INSERT INTO StatType ([name])
 VALUES
+    -- Access StatTypes
+    ('Access_3_DailyAccessesFromLastWeek'),
+
     -- Quiz StatTypes
     ('Quiz_1_LeastAttempts'),
     ('Quiz_1_MostAttempts'),
