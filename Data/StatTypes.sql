@@ -9,4 +9,7 @@ INSERT INTO StatType ([name])
 VALUES
     -- Quiz StatTypes
     ('Quiz_1_LeastAttempts'),
-    ('Quiz_1_MostAttempts');
+    ('Quiz_1_MostAttempts'),
+
+    -- User StatTypes
+    ('User_2_UsersByGender');
